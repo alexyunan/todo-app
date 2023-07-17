@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { loginCall } from "../services/AuthService";
+import { loginCall, storeToken } from "../services/AuthService";
 import { useNavigate } from "react-router-dom";
 
 const LoginComponent = () => {
@@ -14,6 +14,10 @@ const LoginComponent = () => {
     loginCall(username, password)
       .then((response) => {
         console.log(response.data);
+
+        const token = 'Basic ' + window.btoa(username + ":" + password);
+        storeToken(token);
+
         navigate("/todos");
       })
       .then((error) => console.log(error));
