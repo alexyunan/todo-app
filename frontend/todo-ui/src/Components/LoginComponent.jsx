@@ -52,7 +52,7 @@ const LoginComponent = () => {
                   </div>
                 </div>
                 <div className='form-group mb-3'>
-                  <button className='btn btn-primary  ' onClick={(e) => handleLoginForm(e)}>
+                  <button className='btn btn-primary' onClick={(e) => handleLoginForm(e)}>
                     Submit
                   </button>
                 </div>

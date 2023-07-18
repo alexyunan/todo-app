@@ -1,10 +1,16 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import { isUserLoggedIn } from "../services/AuthService";
+import { NavLink, useNavigate } from "react-router-dom";
+import { isUserLoggedIn, logout } from "../services/AuthService";
 
 const HeaderComponent = () => {
   const isAuth = isUserLoggedIn();
 
+  const navigator = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigator("/login");
+  };
   return (
     <div>
       <header>
